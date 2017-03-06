@@ -97,12 +97,12 @@ class matriz():
         archivo.write('{\n')
         self.contadorZ = 0
         while (self.profundidar.existeProf(self.contadorZ) == True):
-
+            archivo.write(str(self.profundidar.busquedaProf(self.contadorZ).z)+';\n')
             nodoAuxiliar = self.profundidar.busquedaProf(self.contadorZ).cab.primero
             while (nodoAuxiliar != None):
                 nodoAuxiliarTemporal = nodoAuxiliar.columna.primero
                 while (nodoAuxiliarTemporal != None):
-                    archivo.write(nodoAuxiliarTemporal.dato+';\n')
+                    archivo.write(nodoAuxiliarTemporal.y +nodoAuxiliarTemporal.x +';\n')
                     nodoAuxiliarTemporal = nodoAuxiliarTemporal.abajo
                     pass
                 nodoAuxiliar = nodoAuxiliar.siguiente
@@ -111,8 +111,8 @@ class matriz():
             while (nodoAuxiliar != None):
                 nodoAuxiliarTemporal = nodoAuxiliar.columna.primero
                 while (nodoAuxiliarTemporal.abajo != None):
-                    archivo.write(nodoAuxiliarTemporal.dato+'->'+nodoAuxiliarTemporal.abajo.dato+';\n')
-                    archivo.write(nodoAuxiliarTemporal.abajo.dato+'->'+nodoAuxiliarTemporal.dato+';\n')
+                    archivo.write(nodoAuxiliarTemporal.y + nodoAuxiliarTemporal.x+'->'+nodoAuxiliarTemporal.abajo.y +nodoAuxiliarTemporal.abajo.x+';\n')
+                    archivo.write(nodoAuxiliarTemporal.abajo.y +nodoAuxiliarTemporal.abajo.x+'->'+nodoAuxiliarTemporal.y + nodoAuxiliarTemporal.x+';\n')
                     nodoAuxiliarTemporal = nodoAuxiliarTemporal.abajo
                     pass
                 nodoAuxiliar = nodoAuxiliar.siguiente
@@ -121,8 +121,8 @@ class matriz():
             while (nodoAuxiliar != None):
                 nodoAuxiliarTemporal = nodoAuxiliar.fila.primero
                 while (nodoAuxiliarTemporal.derecha != None):
-                    archivo.write(nodoAuxiliarTemporal.dato+'->'+nodoAuxiliarTemporal.derecha.dato+';\n')
-                    archivo.write(nodoAuxiliarTemporal.derecha.dato+'->'+nodoAuxiliarTemporal.dato+';\n')
+                    archivo.write(nodoAuxiliarTemporal.y + nodoAuxiliarTemporal.x+'->'+nodoAuxiliarTemporal.derecha.y + nodoAuxiliarTemporal.derecha.x+';\n')
+                    archivo.write(nodoAuxiliarTemporal.derecha.y + nodoAuxiliarTemporal.derecha.x+'->'+nodoAuxiliarTemporal.y + nodoAuxiliarTemporal.x+';\n')
                     nodoAuxiliarTemporal = nodoAuxiliarTemporal.derecha
                     pass
                 nodoAuxiliar = nodoAuxiliar.siguiente
